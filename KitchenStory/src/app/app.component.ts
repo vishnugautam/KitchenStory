@@ -1,0 +1,15 @@
+import { Component } from '@angular/core';
+
+// decorator 
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  // member variables 
+  title = 'KitchenStory';
+  message = "welcome to KitchenStory!"
+
+
+}
