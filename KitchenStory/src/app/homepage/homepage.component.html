@@ -1,1 +1,12 @@
-<p>homepage works!</p>
+Welcome {{name}} to KitchenStory Admin console!
+
+<div class="container">
+    Click here to get a customized welcome message
+    <button (click)="getWelcomeMesaage()" class="btn btn-success">Get Welcome Message</button>
+</div>
+
+<div class="container" *ngIf="welcomeMessageFromService">
+    <h2>Your Customised welcome message:</h2>
+    {{welcomeMessageFromService}}
+
+</div>

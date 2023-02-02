@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 
 @Component({
   selector: 'app-adminlogin',
@@ -13,9 +15,16 @@ export class AdminloginComponent {
   errorMessage = "Invalid Credentials";
   invalidLogin = false;
 
+  constructor(private router: Router, public hardcoded : HardcodedAuthenticationService){
+
+  }
+
   handleLogin(){
-    if(this.username == "vishnu" && this.password == "12345"){
+    // make use hardcoded authentication service
+    if(this.hardcoded.authenticate(this.username, this.password)){
       this.invalidLogin = false;
+      // navigate to homepage component
+      this.router.navigate(['home', this.username]);
     } else {
       this.invalidLogin = true;
       

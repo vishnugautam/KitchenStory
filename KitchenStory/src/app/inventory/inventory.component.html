@@ -1,0 +1,29 @@
+<h1>List of foods:</h1>
+<div class="container">
+    <table class="table">
+
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Food Name</th>
+            <th>Food Description</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Hotel Name</th>
+            <th>Hotel Address</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let item of inventory">
+            <td>{{item.id}}</td>
+            <td>{{item.foodName}}</td>
+            <td>{{item.foodDescription}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.date}}</td>
+            <td>{{item.hotelName}}</td>
+            <td>{{item.hotelAddress}}</td>
+        </tr>
+    </tbody>
+    </table>
+</div>
