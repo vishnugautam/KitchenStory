@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { InventoryDataService } from '../service/data/inventory-data.service';
 
 @Component({
   selector: 'app-inventory',
@@ -8,17 +10,39 @@ import { Component } from '@angular/core';
 
 
 
-export class InventoryComponent {
+export class InventoryComponent implements OnInit{
 
   // member variable
   // inventory = [{
   //   id: 1, description: 'Idli'},
   //   {id: 2, description: 'dosa'}
   //   ]
+  constructor(private inventoryDataService : InventoryDataService, private router : Router){
+  }
+  ngOnInit(): void {
+    this.refreshInventory();
+  }
 
-  inventory = [new Inventory(1, "Idli", "Made from rice", 20, new Date(), "Annapoorna", "Tirupur"),
-               new Inventory(2, "Dosa", "Made from rice", 70, new Date(), "Annapoorna", "Tirupur"),
-               new Inventory(3, "Appum", "Made from rice", 30, new Date(), "Annapoorna", "Tirupur")]
+
+
+  inventory : Inventory[] | undefined;
+
+  refreshInventory(){
+    this.inventoryDataService.retrieveAllFoods('idli').subscribe(
+      response => {
+        // console.log(response);
+        this.inventory = response;
+        
+      }
+    )
+  }
+
+  updateTodo(id : any){
+    // console.log(id);
+    this.router.navigate(['inventory', id])
+    
+  }
+  
 }
 
 export class Inventory{

@@ -21,19 +21,21 @@ export class HomepageComponent implements OnInit{
     
   }
 
-  getWelcomeMesaage(){
+  getWelcomeMesaageWithParameter(){
     // console.log(this.dataService.executeDataRestService()); // Observable object 
-    this.dataService.executeDataRestService().subscribe(
-      response => this.handleSuccessfulResponse(response)
+    this.dataService.executeDataRestServiceWithParameter(this.name).subscribe(
+      response => this.welcomeMessageFromService = response.message,
+      error => this.handleErrorResponse(error)
     );
     
   }
-  handleSuccessfulResponse(response: any){
-    console.log(response);
 
-    this.welcomeMessageFromService =  response.message;
-    
-    
+  handleSuccessfulResponse(response: { message: string | undefined; }){
+    this.welcomeMessageFromService = response.message;
+  }
+
+  handleErrorResponse(error: any){
+    this.welcomeMessageFromService = error.error.errorMessage;
   }
 
 }

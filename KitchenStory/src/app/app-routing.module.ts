@@ -5,6 +5,7 @@ import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { ErrorComponent } from './error/error.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { InventoryComponent } from './inventory/inventory.component';
+import { ItemComponent } from './item/item.component';
 import { RouteGuardService } from './service/route-guard.service';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'home/:name', component: HomepageComponent, canActivate: [RouteGuardService]},
   {path: 'inventory', component: InventoryComponent, canActivate: [RouteGuardService]},
   {path: 'logout', component: AdminLogoutComponent, canActivate: [RouteGuardService]},
+  {path: 'inventory/:id', component: ItemComponent, canActivate: [RouteGuardService]},
   {path: '**', component: ErrorComponent}
 ];
 

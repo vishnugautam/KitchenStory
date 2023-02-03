@@ -1,0 +1,23 @@
+<h1>Inventory Update</h1>
+
+<div class="container">
+    <fieldset class="form-group">
+        <label>Food Description</label>
+        <input type="text" [(ngModel)] = "inventory.foodDescription" class="form-control" name="foodDescription" required>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label>Price</label>
+        <input type="text" [(ngModel)] = "inventory.price" class="form-control" name="price" required>
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Hotel Name</label>
+        <input type="text" [(ngModel)] = "inventory.hotelName" class="form-control" name="hotelName" required>
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Hotel Address</label>
+        <input type="text" [(ngModel)] = "inventory.hotelAddress" class="form-control" name="hotelAddress" required>
+    </fieldset>
+
+    <button class="btn btn-success" (click) = "saveItem()">Save</button>
+</div>
