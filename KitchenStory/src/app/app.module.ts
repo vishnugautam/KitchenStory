@@ -13,6 +13,10 @@ import { FooterComponent } from './footer/footer.component';
 import { AdminLogoutComponent } from './admin-logout/admin-logout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemComponent } from './item/item.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
+import { SearcheditemsComponent } from './searcheditems/searcheditems.component';
+import { OrderoverviewComponent } from './orderoverview/orderoverview.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { ItemComponent } from './item/item.component';
     MenuComponent,
     FooterComponent,
     AdminLogoutComponent,
-    ItemComponent
+    ItemComponent,
+    LandingpageComponent,
+    SearcheditemsComponent,
+    OrderoverviewComponent,
+    CheckoutComponent
     
   ],
   imports: [

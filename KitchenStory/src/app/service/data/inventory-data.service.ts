@@ -9,17 +9,21 @@ export class InventoryDataService {
 
   constructor(private httpClient : HttpClient) { }
 
-  retrieveAllFoods(food_name: any) {
-    return this.httpClient.get<Inventory[]>(`http://localhost:8080/${food_name}/inventory`) // which returns array of inventory
+  retrieveAllFoods(hotel_address: any) {
+    return this.httpClient.get<Inventory[]>(`http://localhost:8080/admin/inventory/${hotel_address}`) // which returns array of inventory
+  }
+  retrieveFoodByName(food_name : String){
+    return this.httpClient.get<Inventory[]>(`http://localhost:8080/admin/inventory/search/${food_name}`)
   }
 
-  retrieveFood(food_name : String, id : number){
-    return this.httpClient.get<Inventory>(`http://localhost:8080/${food_name}/inventory/${id}`)
+  retrieveFoodById(hotel_address : String, id : number){
+    return this.httpClient.get<Inventory>(`http://localhost:8080/admin/inventory/${hotel_address}/${id}`)
   }
+ 
   updateItem(food_name : String, inventory : Inventory, id : number){
-    return this.httpClient.put(`http://localhost:8080/${food_name}/inventory/${id}`, inventory);
+    return this.httpClient.put(`http://localhost:8080/admin/${food_name}/inventory/${id}`, inventory);
   }
-  createItem(food_name : String, inventory : Inventory){
-    return this.httpClient.post(`http://localhost:8080/${food_name}/inventory`, inventory);
+  createItem(food_name : String, inventory : Inventory, id: number){
+    return this.httpClient.post(`http://localhost:8080/admin/${food_name}/inventory/${id}`, inventory);
   }
 }

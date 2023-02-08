@@ -21,6 +21,7 @@ export class InventoryComponent implements OnInit{
   }
   ngOnInit(): void {
     this.refreshInventory();
+    
   }
 
 
@@ -28,16 +29,18 @@ export class InventoryComponent implements OnInit{
   inventory : Inventory[] | undefined;
 
   refreshInventory(){
-    this.inventoryDataService.retrieveAllFoods('idli').subscribe(
+    this.inventoryDataService.retrieveAllFoods('tirupur').subscribe(
       response => {
         // console.log(response);
         this.inventory = response;
+        // console.log(this.inventory);
+        
         
       }
     )
   }
 
-  updateTodo(id : any){
+  updateInventory(id : any){
     // console.log(id);
     this.router.navigate(['inventory', id])
     

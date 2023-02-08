@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 
 @Component({
@@ -8,12 +9,19 @@ import { HardcodedAuthenticationService } from '../service/hardcoded-authenticat
 })
 export class MenuComponent implements OnInit{
 
-  constructor(public hardcodedAuthenticationService : HardcodedAuthenticationService){
-
+  constructor(public hardcodedAuthenticationService : HardcodedAuthenticationService, private router : Router){
+    // console.log(typeof(router.url)); it is a string
+    
   }
   ngOnInit(): void {
     
   }
 
+  isLandingPage(){
+    if(this.router.url == "/"){
+      return false;
+    }
+    return true;
+  }
   
 }

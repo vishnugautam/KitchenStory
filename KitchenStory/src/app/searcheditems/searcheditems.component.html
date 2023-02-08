@@ -15,16 +15,27 @@
     </thead>
 
     <tbody>
-        <tr *ngFor="let item of inventory">
+        <tr *ngFor="let item of inventory"> 
+             <!-- {{searchedInventory}} -->
+            <!-- <td id="value">{{item.value}}</td> -->
             <td>{{item.id}}</td>
             <td>{{item.foodName}}</td>
             <td>{{item.foodDescription}}</td>
             <td>{{item.price}}</td>
             <td>{{item.date}}</td>
             <td>{{item.hotelName}}</td>
-            <td>{{item.hotelAddress}}</td>
-            <td><button (click) = "updateInventory(item.id)" class="btn btn-success">Update</button></td>
-        </tr>
+            <td>{{item.hotelAddress}}</td> 
+            <td><button (click)="toOverview(item.id)" class="btn btn-success">Select</button></td>
+            <!-- <tr>
+                <td id="values">{{values}}</td>
+                <td><button class="btn btn-success">Select</button></td>
+            </tr> --> 
+            <!-- {{searchedInventory.id}} -->
+        </tr> 
     </tbody>
     </table>
 </div>
+  
+
+
+

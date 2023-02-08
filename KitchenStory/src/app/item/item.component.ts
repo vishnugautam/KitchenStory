@@ -17,14 +17,14 @@ export class ItemComponent implements OnInit{
     this.id = this.activatedRoute.snapshot.params['id'];
     // we first assign the todo with 1 instance so that it is not undefined 
     this.inventory = new Inventory(1,'idli', 'made from rice', 50, new Date, 'Annapoorna', 'Tirupur');
-    this.inventoryDataService.retrieveFood('idli', this.id).subscribe(data => 
+    this.inventoryDataService.retrieveFoodById('idli', this.id).subscribe(data => 
       this.inventory = data
       )
   }
 
   saveItem(){
     if (this.id == -1){
-      this.inventoryDataService.createItem('idli', this.inventory).subscribe(
+      this.inventoryDataService.createItem('idli', this.inventory, this.id).subscribe(
         data => {
           this.router.navigate(['inventory'])
         }
