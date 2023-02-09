@@ -20,10 +20,13 @@ export class InventoryDataService {
     return this.httpClient.get<Inventory>(`http://localhost:8080/admin/inventory/${hotel_address}/${id}`)
   }
  
-  updateItem(food_name : String, inventory : Inventory, id : number){
-    return this.httpClient.put(`http://localhost:8080/admin/${food_name}/inventory/${id}`, inventory);
+  updateItem(inventory : Inventory, id : number){
+    return this.httpClient.put(`http://localhost:8080/admin/inventory/${id}`, inventory);
   }
-  createItem(food_name : String, inventory : Inventory, id: number){
-    return this.httpClient.post(`http://localhost:8080/admin/${food_name}/inventory/${id}`, inventory);
+  createItem(food_name : String, inventory : Inventory){
+    return this.httpClient.post(`http://localhost:8080/admin/inventory/${food_name}`, inventory);
+  }
+  deleteFoodById(id: number){
+    return this.httpClient.delete(`http://localhost:8080/admin/inventory/${id}`)
   }
 }

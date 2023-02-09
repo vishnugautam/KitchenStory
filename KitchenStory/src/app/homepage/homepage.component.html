@@ -1,12 +1,36 @@
-Welcome {{name}} to KitchenStory Admin console!
-
 <div class="container">
-    Click here to get a customized welcome message
-    <button (click)="getWelcomeMesaageWithParameter()" class="btn btn-success">Get Welcome Message</button>
+   <h3>Welcome {{name}} to KitchenStory Admin console!</h3>
 </div>
 
-<div class="container" *ngIf="welcomeMessageFromService">
-    <h2>Your Customised welcome message:</h2>
-    {{welcomeMessageFromService}}
+<div class="container">
+    <fieldset class="form-group">
+        <label>Enter id: </label>
+        <input type="text" class="form-control" [(ngModel)] = "inventory.id" name="id">
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Enter Food Name: </label>
+        <input type="text" class="form-control" [(ngModel)] = "inventory.foodName" name="foodname">
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Enter Food Description: </label>
+        <input type="text"  class="form-control" [(ngModel)] = "inventory.foodDescription"  name="foodname">
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Enter Date: </label>
+        <input type="text"  class="form-control" [(ngModel)] = "inventory.date" name="foodname">
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Enter Food Price: </label>
+        <input type="text"  class="form-control"  [(ngModel)] = "inventory.price"  name="foodname">
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Enter Hotel Name: </label>
+        <input type="text"  class="form-control" [(ngModel)] = "inventory.hotelName" name="foodname">
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Enter Hotel Address: </label>
+        <input type="text"  class="form-control" [(ngModel)] = "inventory.hotelAddress" name="foodname">
+    </fieldset>
 
+    <button type="button" (click)="saveItem()" class="btn btn-success">Sumbit</button>
 </div>

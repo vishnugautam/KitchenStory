@@ -27,4 +27,15 @@
         </tr>
     </tbody>
     </table>
+
 </div>
+
+<div class="container">
+    <fieldset class="form-group">
+        <label>Enter id to delete: </label>
+        <input type="text" class="form-control" name="id" [(ngModel)] = "id">
+    </fieldset>
+    <button type="button" class="btn btn-warning" (click)="deleteFood(id)">Delete</button>
+</div>
+
+

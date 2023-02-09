@@ -20,6 +20,9 @@ export class AdminloginComponent {
   }
 
   handleLogin(){
+    // console.log(this.username); when the button is clicked in adminlogin html page it will show in console
+    // the username as vishnu 
+    
     // make use hardcoded authentication service
     if(this.hardcoded.authenticate(this.username, this.password)){
       this.invalidLogin = false;

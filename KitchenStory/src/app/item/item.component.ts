@@ -24,13 +24,13 @@ export class ItemComponent implements OnInit{
 
   saveItem(){
     if (this.id == -1){
-      this.inventoryDataService.createItem('idli', this.inventory, this.id).subscribe(
+      this.inventoryDataService.createItem('idli', this.inventory).subscribe(
         data => {
           this.router.navigate(['inventory'])
         }
       )
     } else {
-      this.inventoryDataService.updateItem('idli', this.inventory, this.id).subscribe(
+      this.inventoryDataService.updateItem(this.inventory, 1).subscribe(
         data => {
           this.router.navigate(['inventory'])
         }
